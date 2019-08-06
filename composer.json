@@ -1,0 +1,15 @@
+{
+  "require": {
+    "php": "^7.2.0",
+    "phpunit/phpunit": "^7"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/App/",
+      "Test\\": "test/"
+    }
+  },
+  "scripts": {
+    "run-unit-test": "vendor/bin/phpunit --configuration phpunit.xml --color tests/"
+  }
+}
