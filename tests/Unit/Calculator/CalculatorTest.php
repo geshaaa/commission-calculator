@@ -21,7 +21,7 @@ class CalculatorTest extends TestCase
      *
      * @dataProvider happyPathDataProvider
      */
-    public function happyPath(array $transaction, array $customerTransactions, float $expectedFee)
+    public function happyPath(array $transaction, array $customerTransactions, string $expectedFee)
     {
         $actualFee = $this->calculator->calculateCommission($transaction, $customerTransactions);
 
@@ -41,7 +41,7 @@ class CalculatorTest extends TestCase
                     'operation_currency' => 'EUR'
                 ],
                 'customerTransactions' => [],
-                'expectedFee' => 0.36
+                'expectedFee' => '0.36'
             ],
             'single cash in legal' => [
                 'transaction' => [
@@ -53,7 +53,7 @@ class CalculatorTest extends TestCase
                     'operation_currency' => 'EUR'
                 ],
                 'customerTransactions' => [],
-                'expectedFee' => 0.36
+                'expectedFee' => '0.36'
             ],
             'single cash in legal more than max fee' =>  [
                 'transaction' => [
@@ -65,7 +65,7 @@ class CalculatorTest extends TestCase
                     'operation_currency' => 'EUR'
                 ],
                 'customerTransactions' => [],
-                'expectedFee' => 5.0
+                'expectedFee' => '5.00'
             ],
             'single cash in natural more than max fee' =>  [
                 'transaction' => [
@@ -77,7 +77,7 @@ class CalculatorTest extends TestCase
                     'operation_currency' => 'EUR'
                 ],
                 'customerTransactions' => [],
-                'expectedFee' => 5.0
+                'expectedFee' => '5.00'
             ],
             'single cash in natural JPY more than max fee' => [
                 'transaction' => [
@@ -89,7 +89,7 @@ class CalculatorTest extends TestCase
                     'operation_currency' => 'JPY'
                 ],
                 'customerTransactions' => [],
-                'expectedFee' => 647.65
+                'expectedFee' => '648'
             ],
             'single cash in natural USD more than max fee' => [
                 'transaction' => [
@@ -101,7 +101,7 @@ class CalculatorTest extends TestCase
                     'operation_currency' => 'USD'
                 ],
                 'customerTransactions' => [],
-                'expectedFee' => 5.75
+                'expectedFee' => '5.75'
             ],
             'single cash out natural zero fee' => [
                 'transaction' => [
@@ -113,7 +113,7 @@ class CalculatorTest extends TestCase
                     'operation_currency' => 'EUR'
                 ],
                 'customerTransactions' => [],
-                'expectedFee' => 0.0
+                'expectedFee' => '0.00'
             ],
             'single cash out natural with fee' => [
                 'transaction' => [
@@ -125,7 +125,7 @@ class CalculatorTest extends TestCase
                     'operation_currency' => 'EUR'
                 ],
                 'customerTransactions' => [],
-                'expectedFee' => 0.6
+                'expectedFee' => '0.60'
             ],
             'single cash out legal' => [
                 'transaction' => [
@@ -137,7 +137,7 @@ class CalculatorTest extends TestCase
                     'operation_currency' => 'EUR'
                 ],
                 'customerTransactions' => [],
-                'expectedFee' => 3.0
+                'expectedFee' => '3.00'
             ],
             'single cash out legal min fee' => [
                 'transaction' => [
@@ -149,7 +149,7 @@ class CalculatorTest extends TestCase
                     'operation_currency' => 'EUR'
                 ],
                 'customerTransactions' => [],
-                'expectedFee' => 0.5
+                'expectedFee' => '0.50'
             ],
             'single cash out legal USD' => [
                 'transaction' => [
@@ -161,7 +161,7 @@ class CalculatorTest extends TestCase
                     'operation_currency' => 'USD'
                 ],
                 'customerTransactions' => [],
-                'expectedFee' => 6.0
+                'expectedFee' => '6.00'
             ],
             'single cash out legal min fee USD' => [
                 'transaction' => [
@@ -173,7 +173,7 @@ class CalculatorTest extends TestCase
                     'operation_currency' => 'USD'
                 ],
                 'customerTransactions' => [],
-                'expectedFee' => 0.58
+                'expectedFee' => '0.58'
             ],
             'single cash out legal JPY' => [
                 'transaction' => [
@@ -185,7 +185,7 @@ class CalculatorTest extends TestCase
                     'operation_currency' => 'JPY'
                 ],
                 'customerTransactions' => [],
-                'expectedFee' => 3000.0
+                'expectedFee' => '3000'
             ],
             'single cash out legal min fee JPY' => [
                 'transaction' => [
@@ -197,7 +197,7 @@ class CalculatorTest extends TestCase
                     'operation_currency' => 'JPY'
                 ],
                 'customerTransactions' => [],
-                'expectedFee' => 64.77
+                'expectedFee' => '65'
             ],
             'more than 3 transactions cash out natural' => [
 
@@ -243,7 +243,7 @@ class CalculatorTest extends TestCase
                         'operation_currency' => 'EUR'
                     ]
                 ],
-                'expectedFee' => 0.03
+                'expectedFee' => '0.03'
             ],
             '3 transactions cash out natural' => [
 
@@ -273,7 +273,7 @@ class CalculatorTest extends TestCase
                         'operation_currency' => 'EUR'
                     ]
                 ],
-                'expectedFee' => 0
+                'expectedFee' => '0.00'
             ],
             '2 transactions with amount greater than limit cash out natural' => [
 
@@ -303,7 +303,7 @@ class CalculatorTest extends TestCase
                         'operation_currency' => 'EUR'
                     ]
                 ],
-                'expectedFee' => 0.03
+                'expectedFee' => '0.03'
             ],
             '2 transactions with amount greater than limit mixed currencies cash out natural' => [
 
@@ -333,7 +333,7 @@ class CalculatorTest extends TestCase
                         'operation_currency' => 'USD'
                     ]
                 ],
-                'expectedFee' => 0.03
+                'expectedFee' => '0.03'
             ]
         ];
     }

@@ -38,19 +38,19 @@ class CommissionControllerTest extends TestCase
             'valid name and data' => [
                 'inputFile' => 'request.csv',
                 'expectedResponse' => [
-                    0.6,
-                    3.0,
-                    0.0,
-                    0.06,
-                    0.9,
-                    0.0,
-                    0.7,
-                    0.3,
-                    0.3,
-                    5.0,
-                    0.0,
-                    0.0,
-                    8611.41
+                    '0.60',
+                    '3.00',
+                    '0.00',
+                    '0.06',
+                    '0.90',
+                    '0',
+                    '0.70',
+                    '0.30',
+                    '0.30',
+                    '5.00',
+                    '0.00',
+                    '0.00',
+                    '8612'
                 ]
             ]
         ];

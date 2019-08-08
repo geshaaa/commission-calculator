@@ -48,7 +48,7 @@ class CommissionControllerTest extends TestCase
             ->getMock();
 
         $commissionCalculator->method('calculateCommission')
-            ->willReturn(0.6);
+            ->willReturn('0.60');
 
         $this->controller = new \App\Controller\CommissionController($parserFactory, $validator, $commissionCalculator);
     }
@@ -61,6 +61,6 @@ class CommissionControllerTest extends TestCase
         $requestFileFullPath             = 'fixtures/test.csv';
         $actualResponse = $this->controller->getCommissions($requestFileFullPath);
 
-        self::assertSame([0.6], $actualResponse);
+        self::assertSame(['0.60'], $actualResponse);
     }
 }

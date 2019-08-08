@@ -22,6 +22,12 @@ class Constants
         self::SUPPORTED_CURRENCIES[2] => 129.53,
     ];
 
+    const CURRENCY_RATES_ROUNDING = [
+        self::SUPPORTED_CURRENCIES[0] => 2,
+        self::SUPPORTED_CURRENCIES[1] => 2,
+        self::SUPPORTED_CURRENCIES[2] => 0,
+    ];
+
     const MIN_COMMISSION_FEE_LEGAL_CASH_OUT_EURO = 0.5;
     const COMMISSION_FEE_LEGAL_CASH_OUT_PERCENT = 0.3;
     const COMMISSION_FEE_CASH_IN_PERCENT = 0.03;

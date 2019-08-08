@@ -8,9 +8,9 @@ class CommissionCalculator
     /**
      * @param array $transaction
      * @param array $customerTransactions
-     * @return float
+     * @return string
      */
-    public function calculateCommission (array $transaction, array $customerTransactions): float
+    public function calculateCommission (array $transaction, array $customerTransactions): string
     {
         $fee = 0;
         switch ($transaction['operation_type']) {
@@ -21,7 +21,12 @@ class CommissionCalculator
                 $fee = $this->calculateCashOut($transaction, $customerTransactions);
                 break;
         }
-        return $this->ceiling($fee, 2);
+        return number_format(
+            $this->ceiling($fee, Constants::CURRENCY_RATES_ROUNDING[$transaction['operation_currency']]),
+            Constants::CURRENCY_RATES_ROUNDING[$transaction['operation_currency']],
+            '.',
+            ''
+        );
     }
 
     /**
